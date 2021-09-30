@@ -1,9 +1,6 @@
 {% extends 'base.html' %}
-{% block 'title' %} Home Page {% endblock  %}
-
+{% block 'title' %} {{ post.title }} {% endblock %}
 {% block 'content' %}
-
-    {% for post in posts  %}
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <div class="card border-white">
@@ -12,14 +9,12 @@
                         <h4 class="card-title">{{ post.title }}</h4>
                             <span style = 'color:gray;font-size:12px;'> <b> {{ post.category }}  </b> </span>&nbsp;&nbsp; <span style = 'color:gray;font-size:12px;'> {{ post.posted_date }} </span>
                         <p class="card-text  py-2">
-                            {{ post.content|truncatewords:30 }}
-                            <a href="{% url 'detail' post.id %}" class="btn btn-link">Read More</a>
+                            {{ post.content }}
+                            <a href="{% url 'blogDelete' post.id %}" class="btn btn-link">Delete Blog</a>
+                            <a href="{% url 'blogUpdate' post.id %}" class="btn btn-link">Update Blog</a>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-
-    {% endfor %}
-
 {% endblock  %}

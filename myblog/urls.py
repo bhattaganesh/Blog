@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import about,contact, home
+from .views import about,contact, home, detail, deleteBlog, createBlog, updateBlog
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,4 +24,8 @@ urlpatterns = [
     path('about/', about, name="about"),
     path('contact/', contact, name="contact"),
     path('', home, name="home"),
+    path('detail/<int:id>', detail, name="detail"),
+    path('blog-delete/<int:id>', deleteBlog, name="blogDelete"),
+    path('blog-create', createBlog, name="blogCreate"),
+    path('blog-update/<int:id>', updateBlog, name="blogUpdate")
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
