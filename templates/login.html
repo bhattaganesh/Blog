@@ -1,0 +1,30 @@
+  {% extends 'base.html' %}
+  {% block 'title' %} Login Page {% endblock  %}
+  
+  {% block 'content' %}
+  
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container col-8">
+            <h1 class="display-3 mb-3">My Blog - Login</h1>
+            <form action="{% url 'signin' %}" method="POST">
+              {% include "messages.html" %}
+              {% csrf_token %}
+                <div class="form-group">
+                  <label for="username">User Name:</label>
+                  <input type="text"  name="username" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Password:</label>
+                  <input type="password" name="pwd" class="form-control" id="pwd">
+                </div>
+                <div class="form-group form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"> Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+      </div>
+  
+  {% endblock  %}

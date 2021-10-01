@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block 'title' %} Sign-Up Page {% endblock  %}
+
+{% block 'content' %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container col-8">
+          <h1 class="display-3 mb-3">My Blog - Sign-Up</h1>
+          <form action="{% url 'signup' %}" method="post">
+            {% include "messages.html" %}
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" value="{{ firstname }}" name="firstname" class="form-control" id="firstname">
+              </div>
+              <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" value="{{ lastname }}" name="lastname" class="form-control" id="lastname">
+              </div>
+              <div class="form-group">
+                <label for="username">User Name:</label>
+                <input type="text" value="{{ username }}" name="username" class="form-control" id="username">
+              </div>
+              <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" value="{{ email }}" name="email" class="form-control" id="email">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" name="pwd" class="form-control" id="pwd">
+              </div>
+              <div class="form-group">
+                <label for="cpwd">Confirmation Password:</label>
+                <input type="password" name="cpwd" class="form-control" id="cpwd">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock  %}
